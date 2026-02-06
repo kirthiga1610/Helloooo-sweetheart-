@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kirthiga ❤️ Lokesh</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle, #ff9a9e, #fad0c4);
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+/* Cupid */
+#cupid {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 80px;
+  cursor: pointer;
+}
+
+/* Arrow */
+#arrow {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  font-size: 40px;
+  display: none;
+  animation: fly 1.5s linear forwards;
+}
+
+@keyframes fly {
+  from { transform: translate(-50%, 0); }
+  to { transform: translate(300px, -200px); }
+}
+
+/* Letter */
+#letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 85%;
+  max-width: 540px;
+  background: #fffaf0;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 35px rgba(0,0,0,0.3);
+  transition: transform 1s ease;
+}
+
+#letter.open {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#letter h2 {
+  color: #e6005c;
+}
+
+/* Proposal */
+#proposal {
+  display: none;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #aaa;
+}
+
+/* Final message */
+#finalMessage {
+  display: none;
+  font-size: 22px;
+  color: #e6005c;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Ring animation */
+#ring {
+  display: none;
+  font-size: 80px;
+  margin-top: 20px;
+  animation: ringPop 1.5s ease forwards;
+}
+
+@keyframes ringPop {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3) rotate(360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Floating effects */
+.float {
+  position: absolute;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="cupid">👼💘</div>
+<div id="arrow">➵</div>
+
+<div id="letter">
+  <h2>Dear Lokesh ❤️</h2>
+
+  <p>
+    I still remember January 25 — my first day, my first job, and unknowingly my first step towards you.<br><br>
+    You were my trainer, my guide, and the calm voice that made everything easier.<br><br>
+    I called you “bro”, hiding feelings I didn’t yet understand.<br><br>
+    Slowly, I fell for your voice, your patience, and the way you cared.<br><br>
+    Training sessions became my favorite moments because of you.<br><br>
+    What began as guidance turned into admiration.<br><br>
+    Admiration turned into affection.<br><br>
+    And affection turned into deep, genuine love.<br><br>
+    Loving you was never sudden — it was slow, pure, and real.<br><br>
+    You became my comfort, my safe place, my home.<br><br>
+    I’m grateful my journey gave me more than a career — it gave me you.<br><br>
+    You are my forever ♾️<br><br>
+    With all my heart,<br><br>
+    <b>Kirthiga 💖</b>
+  </p>
+
+  <div id="proposal">
+    <h3>Will you be mine forever, Lokesh? 💍❤️</h3>
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 😜</button>
+  </div>
+
+  <div id="ring">💍</div>
+
+  <div id="finalMessage">
+    Engaged in hearts, souls & forever 💕♾️
+  </div>
+</div>
+
+<audio id="music">
+  <source src="ovvandrai_thirudugirai_female.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const cupid = document.getElementById("cupid");
+const arrow = document.getElementById("arrow");
+const letter = document.getElementById("letter");
+const proposal = document.getElementById("proposal");
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const finalMsg = document.getElementById("finalMessage");
+const ring = document.getElementById("ring");
+const music = document.getElementById("music");
+
+cupid.onclick = () => {
+  arrow.style.display = "block";
+
+  setTimeout(() => {
+    letter.classList.add("open");
+    music.play();
+    startFloating("❤️", 20);
+    startFloating("🌹", 15);
+    startFloating("💋", 25);
+    proposal.style.display = "block";
+  }, 1500);
+};
+
+yesBtn.onclick = () => {
+  proposal.style.display = "none";
+  ring.style.display = "block";
+  finalMsg.style.display = "block";
+  startFloating("💖", 35);
+  startFloating("💋", 35);
+};
+
+noBtn.onclick = () => {
+  alert("Error 404 ❌ Destiny not found 😌 Redirecting to YES...");
+  setTimeout(() => yesBtn.click(), 800);
+};
+
+function startFloating(symbol, count) {
+  for (let i = 0; i < count; i++) {
+    const span = document.createElement("span");
+    span.innerHTML = symbol;
+    span.className = "float";
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.fontSize = Math.random() * 30 + 20 + "px";
+    span.style.animationDuration = Math.random() * 3 + 4 + "s";
+    document.body.appendChild(span);
+
+    setTimeout(() => span.remove(), 7000);
+  }
+}
+</script>
+
+</body>
+</html>
